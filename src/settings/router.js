@@ -17,13 +17,13 @@ const TabNavigator = createMaterialTopTabNavigator({
     Search: {
         screen: Splash,
         navigationOptions: {
-            title: '탭1',
+            title: 'Tab1',
         }
     },
     Config: {
         screen: Splash,
         navigationOptions: {
-            title: '탭2',
+            title: 'Tab2',
         }
     },
 }, {
@@ -57,7 +57,7 @@ const StackNavigator = createStackNavigator({
     Splash: {
         screen: Splash,
         navigationOptions: {
-            title: '메뉴렛'
+            title: 'Menulet'
         }
     },
 },{
