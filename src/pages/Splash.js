@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, PermissionsAndroid, Platform} from 'react-native';
+import {inject, observer} from "mobx-react";
 import {create} from "apisauce";
 import Moment from 'moment';
 import {Formik} from 'formik';
@@ -7,6 +8,9 @@ import * as yup from 'yup';
 import {Toast} from "native-base";
 import geolocation from 'react-native-geolocation-service';
 
+
+@inject('appStore')
+@observer
 export default class Splash extends Component {
     constructor(props){
         super(props);
@@ -123,6 +127,12 @@ export default class Splash extends Component {
                     onPress={this.getLocation.bind(this)}
                     style={{backgroundColor: '#00688B', paddingVertical: 20, marginTop: 20}}>
                     <Text style={{textAlign: 'center', color: '#fff'}}>Location Check</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={this.props.appStore.increase}
+                    style={{backgroundColor: '#CD661D', paddingVertical: 20, marginTop: 20}}>
+                    <Text style={{textAlign: 'center', color: '#fff'}}>mobX counter {this.props.appStore.count}</Text>
                 </TouchableOpacity>
             </View>
         )
