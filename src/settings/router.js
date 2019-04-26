@@ -56,6 +56,9 @@ const TabNavigator = createMaterialTopTabNavigator({
 const StackNavigator = createStackNavigator({
     Splash: {
         screen: Splash,
+        navigationOptions: {
+            title: '메뉴렛'
+        }
     },
 },{
     initialRouteName: 'Splash',
@@ -72,6 +75,7 @@ const StackNavigator = createStackNavigator({
             }
         }
     },
+    headerLayoutPreset: 'center',
 });
 
 
