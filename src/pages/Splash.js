@@ -7,6 +7,7 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import {Toast} from "native-base";
 import geolocation from 'react-native-geolocation-service';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'
 
 
 @inject('appStore')
@@ -134,6 +135,17 @@ export default class Splash extends Component {
                     style={{backgroundColor: '#CD661D', paddingVertical: 20, marginTop: 20}}>
                     <Text style={{textAlign: 'center', color: '#fff'}}>mobX counter {this.props.appStore.count}</Text>
                 </TouchableOpacity>
+
+                <MapView
+                    provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                    style={{width: '100%', height: 200, marginTop: 20}}
+                    region={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.015,
+                        longitudeDelta: 0.0121,
+                    }}
+                />
             </View>
         )
     }
